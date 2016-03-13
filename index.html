@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Print the ticket</title>
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		
+	</head>
+
+	<body>
+		<main>
+		<header>
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">
+							<div class="center-block">Print the Ticket</div>
+						</a>
+					</div>
+
+				</div>
+			</nav>
+		</header>
+		<article>
+			<div class="container">
+				<a data-toggle='collapse' href="#details">Details<span class="glyphicon glyphicon-chevron-down"></span></a>
+				<div id="details" class="panel-collapse collapse panel">
+				</div>
+			</div>
+			
+			<div class="container">
+				<div class="col-sm-6">
+					<h3>Cash Register</h3>
+					<div id="cash-panel" class="panel">
+						<div class="panel-body">
+							<form class="form-inline">
+								<!--scan area-->
+								<div id="scan-area">
+									<input id="bar-code" type="text" class="form-control" placeholder="Bar Code" list='bar_code_list' required="" />
+									<!--<datalist id="bar_code_list">
+										<option>ITEM0001</option>
+										<option>ITEM0002</option>
+									</datalist>-->
+									<input id="quantity" type="number" class="form-control" min="0" placeholder="Quantity" required="" />
+									<button class="form-control" id="scan">Scan It</button>
+									
+								</div>
+								<!-- product list -->
+								<div>
+									<table id="s-list" class="table table-hover">
+										<thead>
+											<tr>
+												<td>Bar Code</td>
+												<td>Quentity</td>
+												<td>Del</td>
+											</tr>
+										</thead>
+										<tbody>
+											
+										</tbody>
+									</table>
+									<input id="print" type="submit" class="form-control btn btn-primary" value="print" />
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<h3>Tickets</h3>
+					<div  class="panel panel-primary well">
+						<div id="ticket-panel" class="panel-body">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+
+		<footer>
+
+		</footer>
+		</main>
+	</body>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/data.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+</html>
