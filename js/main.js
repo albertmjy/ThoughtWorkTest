@@ -110,11 +110,11 @@
 				var list = {
 					name: prod[1],
 					quantity: qt,
-					price: price,
-					sub_total: _sub_total,
+					price: price.toFixed(2),
+					sub_total: _sub_total.toFixed(2),
 					unit: unit,
-					discount: _discount,
-					save:_save,
+					discount: _discount.toFixed(2),
+					save:_save.toFixed(2),
 					free_count: _freeCount
 				}
 				console.log(list)
@@ -123,8 +123,8 @@
 				total += _sub_total
 				save_total += _discount + _save
 			});
-			resultJson.total = total
-			resultJson.save = save_total
+			resultJson.total = total.toFixed(2)
+			resultJson.save = save_total.toFixed(2)
 			console.log(resultJson)
 			return resultJson
 		},
@@ -148,29 +148,29 @@
 			var hasFreeCount = false  // if has free product 
 			// get the product lines info 
 			$.each(data.list, function(k, v) {
-				var ulProd = $("<ul>").append($("<li>").text("Name: " + v.name))
-								.append($("<li>").text("Quantity: " + v.quantity +v.unit))
-								.append($("<li>").text("Price: " + v.price))
-								.append($("<li>").text("Subtotal: " + v.sub_total))
+				var ulProd = $("<ul>").append($("<li>").text("名称: " + v.name))
+								.append($("<li>").text("数量: " + v.quantity +v.unit))
+								.append($("<li>").text("单价: " + v.price))
+								.append($("<li>").text("小计: " + v.sub_total))
 				if (v.discount > 0){
-					ulProd.append($("<li>").text("Discount: " + v.discount))
+					ulProd.append($("<li>").text("节省: " + v.discount))
 				}
 				pdList.append(ulProd)
 				
 				if (v.free_count > 0){
 					hasFreeCount = true
-					var ulFree = $("<ul>").append($("<li>").text("Name: " + v.name))
-									.append($("<li>").text("Quantity: " + v.free_count +v.unit))
+					var ulFree = $("<ul>").append($("<li>").text("名称: " + v.name))
+									.append($("<li>").text("数量: " + v.free_count +v.unit))
 					freeList.append(ulFree)
 				}
 			});
-			pdList.prepend($("<div>****XXX Store****</div>"))
+			pdList.prepend($("<div>****<没钱赚商店>购物清单****</div>"))
 				.append($("<div>-----------------</div>"))
 			ticketPanel.append(pdList)
 			
 			// get the free product line info
 			if (hasFreeCount){
-				freeList.prepend($("<span>Free Count</span>"))
+				freeList.prepend($("<span>买二赠一商品</span>"))
 						.append($("<div>-----------------</div>"))
 				ticketPanel.append(freeList)
 			}

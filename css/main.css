@@ -14,7 +14,12 @@
 #scan-area>button{
 	/*flex: 1;*/
 }
-
+#details{
+	position: absolute;
+	z-index: 100;
+	background: #D5D5D5;
+	/*height: 100%;*/
+}
 
 #cash-panel{
 	display: block;
@@ -22,6 +27,9 @@
 	
 }
 
+ul{
+	margin-bottom: 2px;
+}
 ul>li{
 	display: inline;
 }
